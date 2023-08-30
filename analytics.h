@@ -33,4 +33,13 @@ void loadVector(ifstream &file, vector<GradEmploymentData> &vector);
 void menu();
 bool validMenuImput(int num);
 
+void highMeanSalary();
+void lowMeanSalary();
+void highMedianSalary();
+void lowMedianSalary();
+void highNumAsians();
+void lowNumAsians();
+void highNumMinority();
+void lowNumMinority();
+
 #endif

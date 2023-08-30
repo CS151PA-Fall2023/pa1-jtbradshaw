@@ -2,13 +2,44 @@
 
 void loadVector(ifstream &file, vector<GradEmploymentData> &vector){
     GradEmploymentData temp;
-    //NEED TO SKIP FIRST LINE!!!!
-    while(file.peek()!=EOF){
+    string firstLine;
+    getline(file, firstLine);
+    //cin.ignore();
+    do{
+        //cout<<"Start of do-while loop. ";
+        char hold;
         file>>temp.demographicsTotal;
-        cout<<temp.demographicsTotal<<endl;
-        //cin.ignore();
+        file>>hold;
+        if(file.peek()=='"'){
+            file>>hold;
+            getline(file, temp.educationMajor, '"');
+        } else {
+           getline(file, temp.educationMajor, ','); 
+        }
+        file>>temp.meanSalary;
+        file>>hold;
+        file>>temp.medianSalary;
+        file>>hold;
+        file>>temp.demographicsAsian;
+        file>>hold;
+        file>>temp.demographicsMinority;
+        file>>hold;
+        file>>temp.demographicsWhite;
+        file>>hold;
+        file>>temp.demographicsFemales;
+        file>>hold;
+        file>>temp.demographicsMales;
+        file>>hold;
+        file>>temp.educationBachelor;
+        file>>hold;
+        file>>temp.educationDoctorate;
+        file>>hold;
+        file>>temp.educationMasters;
+        file>>hold;
+        vector.push_back(temp);
 
-    }
+
+    } while(file.peek()!=EOF);
 
 }
 
