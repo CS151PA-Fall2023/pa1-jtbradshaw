@@ -56,5 +56,7 @@ void highestFemale(vector<GradEmploymentData> &vector);
 void highestMale(vector<GradEmploymentData> &vector);
 void specMajor(vector<GradEmploymentData> &vector);
 
+void sort(vector<GradEmploymentData> &vector);
+
 
 #endif

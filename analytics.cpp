@@ -52,13 +52,14 @@ void loadVector(ifstream &file, vector<GradEmploymentData> &vector){
         file>>temp.educationDoctorate;
         file>>hold;
         file>>temp.educationMasters;
-        file>>hold;
         vector.push_back(temp);
 
 
     } while(file.peek()!=EOF);
 
 }
+
+
 
 /**
  * @brief displays the menu and redirects it to another function depending upon the input
@@ -141,19 +142,20 @@ void highMeanSalary(vector<GradEmploymentData> &vector){
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
     {
         int key = vector[startScan].meanSalary;
+        GradEmploymentData temp = vector[startScan];
         int index = startScan - 1;
         while (index >= 0 && vector[index].meanSalary > key)
-    {
-        vector[index+1].meanSalary = vector[index].meanSalary;
-        --index;
-    }
-        vector[index+1].meanSalary = key;
+        {
+            vector[index+1] = vector[index];
+            --index;
+        }
+        vector[index+1] = temp;
     }
     //Outputs result
     cout<<"Education Major                       Mean Salary"<<endl;
     cout<<"---------------------------------------------------\n";
     for(int i = (int)vector.size()-1; i > (int)vector.size()-11; i--){
-        cout<<left<<setw(34)<<vector[i].educationMajor<<setw(3)<<"$"<<right<<setw(9)<<vector[i].meanSalary<<endl;
+        cout<<left<<setw(34)<<vector[i].educationMajor<<setw(3)<<"$"<<right<<setw(9)<<setprecision(2)<<fixed<<vector[i].meanSalary<<endl;
     }
     cout<<"\n\nPress enter to continue...\n"<<flush;
     cin.ignore();
@@ -172,19 +174,20 @@ void lowMeanSalary(vector<GradEmploymentData> &vector){
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
     {
         int key = vector[startScan].meanSalary;
+        GradEmploymentData temp = vector[startScan];
         int index = startScan - 1;
         while (index >= 0 && vector[index].meanSalary > key)
-    {
-        vector[index+1].meanSalary = vector[index].meanSalary;
-        --index;
-    }
-        vector[index+1].meanSalary = key;
+        {
+            vector[index+1] = vector[index];
+            --index;
+        }
+        vector[index+1] = temp;
     }
     //Outputs result
     cout<<"Education Major                       Mean Salary"<<endl;
     cout<<"---------------------------------------------------\n";
     for(int i = 0; i < 10; i++){
-        cout<<left<<setw(34)<<vector[i].educationMajor<<setw(3)<<"$"<<right<<setw(9)<<vector[i].meanSalary<<endl;
+        cout<<left<<setw(34)<<vector[i].educationMajor<<setw(3)<<"$"<<right<<setw(9)<<setprecision(2)<<fixed<<vector[i].meanSalary<<endl;
     }
     cout<<"\n\nPress enter to continue...\n"<<flush;
     cin.ignore();
@@ -203,19 +206,20 @@ void highMedianSalary(vector<GradEmploymentData> &vector){
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
     {
         int key = vector[startScan].medianSalary;
+        GradEmploymentData temp = vector[startScan];
         int index = startScan - 1;
         while (index >= 0 && vector[index].medianSalary > key)
-    {
-        vector[index+1].medianSalary = vector[index].medianSalary;
-        --index;
-    }
-        vector[index+1].medianSalary = key;
+        {
+            vector[index+1] = vector[index];
+            --index;
+        }
+        vector[index+1] = temp;
     }
     //Outputs result
     cout<<"Education Major                       Median Salary"<<endl;
     cout<<"---------------------------------------------------\n";
     for(int i = (int)vector.size()-1; i > (int)vector.size()-11; i--){
-        cout<<left<<setw(34)<<vector[i].educationMajor<<setw(3)<<"$"<<right<<setw(9)<<vector[i].medianSalary<<endl;
+        cout<<left<<setw(34)<<vector[i].educationMajor<<setw(3)<<"$"<<right<<setw(9)<<setprecision(2)<<fixed<<vector[i].medianSalary<<endl;
     }
     cout<<"\n\nPress enter to continue...\n"<<flush;
     cin.ignore();
@@ -234,19 +238,20 @@ void lowMedianSalary(vector<GradEmploymentData> &vector){
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
     {
         int key = vector[startScan].medianSalary;
+        GradEmploymentData temp = vector[startScan];
         int index = startScan - 1;
         while (index >= 0 && vector[index].medianSalary > key)
-    {
-        vector[index+1].medianSalary = vector[index].medianSalary;
-        --index;
-    }
-        vector[index+1].medianSalary = key;
+        {
+            vector[index+1] = vector[index];
+            --index;
+        }
+        vector[index+1] = temp;
     }
     //Outputs result
     cout<<"Education Major                       Median Salary"<<endl;
     cout<<"---------------------------------------------------\n";
     for(int i = 0; i < 10; i++){
-        cout<<left<<setw(34)<<vector[i].educationMajor<<setw(3)<<"$"<<right<<setw(9)<<vector[i].medianSalary<<endl;
+        cout<<left<<setw(34)<<vector[i].educationMajor<<setw(3)<<"$"<<right<<setw(9)<<setprecision(2)<<fixed<<vector[i].medianSalary<<endl;
     }
     cout<<"\n\nPress enter to continue...\n"<<flush;
     cin.ignore();
@@ -265,13 +270,14 @@ void highNumAsians(vector<GradEmploymentData> &vector){
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
     {
         int key = vector[startScan].demographicsAsian;
+        GradEmploymentData temp = vector[startScan];
         int index = startScan - 1;
         while (index >= 0 && vector[index].demographicsAsian > key)
-    {
-        vector[index+1].demographicsAsian = vector[index].demographicsAsian;
-        --index;
-    }
-        vector[index+1].demographicsAsian = key;
+        {
+            vector[index+1] = vector[index];
+            --index;
+        }
+        vector[index+1] = temp;
     }
     //Outputs result
     cout<<"Education Major                       Number of Asians"<<endl;
@@ -296,13 +302,14 @@ void lowNumAsians(vector<GradEmploymentData> &vector){
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
     {
         int key = vector[startScan].demographicsAsian;
+        GradEmploymentData temp = vector[startScan];
         int index = startScan - 1;
         while (index >= 0 && vector[index].demographicsAsian > key)
-    {
-        vector[index+1].demographicsAsian = vector[index].demographicsAsian;
-        --index;
-    }
-        vector[index+1].demographicsAsian = key;
+        {
+            vector[index+1] = vector[index];
+            --index;
+        }
+        vector[index+1] = temp;
     }
     //Outputs result
     cout<<"Education Major                       Number of Asians"<<endl;
@@ -327,13 +334,14 @@ void highNumMinority(vector<GradEmploymentData> &vector){
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
     {
         int key = vector[startScan].demographicsMinority;
+        GradEmploymentData temp = vector[startScan];
         int index = startScan - 1;
         while (index >= 0 && vector[index].demographicsMinority > key)
-    {
-        vector[index+1].demographicsMinority = vector[index].demographicsMinority;
-        --index;
-    }
-        vector[index+1].demographicsMinority = key;
+        {
+            vector[index+1] = vector[index];
+            --index;
+        }
+        vector[index+1] = temp;
     }
     //Outputs result
     cout<<"Education Major                       Number of Minorities"<<endl;
@@ -358,13 +366,14 @@ void lowNumMinority(vector<GradEmploymentData> &vector){
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
     {
         int key = vector[startScan].demographicsMinority;
+        GradEmploymentData temp = vector[startScan];
         int index = startScan - 1;
         while (index >= 0 && vector[index].demographicsMinority > key)
-    {
-        vector[index+1].demographicsMinority = vector[index].demographicsMinority;
-        --index;
-    }
-        vector[index+1].demographicsMinority = key;
+        {
+            vector[index+1] = vector[index];
+            --index;
+        }
+        vector[index+1] = temp;
     }
     //Outputs result
     cout<<"Education Major                       Number of Minorities"<<endl;
@@ -437,13 +446,14 @@ void specMajor(vector<GradEmploymentData> &vector){
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
     {
         string key = vector[startScan].educationMajor;
+        GradEmploymentData temp = vector[startScan];
         int index = startScan - 1;
         while (index >= 0 && vector[index].educationMajor > key)
         {
-        vector[index+1].educationMajor = vector[index].educationMajor;
-        --index;
+            vector[index+1] = vector[index];
+            --index;
         }
-        vector[index+1].educationMajor = key;
+        vector[index+1] = temp;
     }
 
     string major = " ";
@@ -510,8 +520,8 @@ void specMajor(vector<GradEmploymentData> &vector){
     cout<<"\n"<<left<<setw(10)<<"Major"<<right<<setw(20)<<major<<endl;
     cout<<"----------------------------------\n";
     cout<<left<<setw(20)<<"Total Demographics"<<right<<setw(12)<<vector[num].demographicsTotal<<endl;
-    cout<<left<<setw(20)<<"Mean Salary"<<"   $"<<right<<setw(8)<<vector[num].meanSalary<<endl;
-    cout<<left<<setw(20)<<"Median Salary"<<"   $"<<right<<setw(8)<<vector[num].medianSalary<<endl;
+    cout<<left<<setw(20)<<"Mean Salary"<<"   $"<<right<<setw(8)<<setprecision(2)<<fixed<<vector[num].meanSalary<<endl;
+    cout<<left<<setw(20)<<"Median Salary"<<"   $"<<right<<setw(8)<<setprecision(2)<<fixed<<vector[num].medianSalary<<endl;
     cout<<left<<setw(20)<<"Demographics Asian"<<right<<setw(12)<<vector[num].demographicsAsian<<endl;
     cout<<left<<setw(20)<<"Demographics Minorities"<<right<<setw(9)<<vector[num].demographicsMinority<<endl;
     cout<<left<<setw(20)<<"Demographics White"<<right<<setw(12)<<vector[num].demographicsWhite<<endl;
