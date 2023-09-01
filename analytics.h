@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 
+
 using namespace std;
 
 
@@ -30,16 +31,20 @@ struct GradEmploymentData
 };
 
 void loadVector(ifstream &file, vector<GradEmploymentData> &vector);
-void menu();
+void menu(vector<GradEmploymentData> &gradVect);
 bool validMenuImput(int num);
 
-void highMeanSalary();
-void lowMeanSalary();
-void highMedianSalary();
-void lowMedianSalary();
-void highNumAsians();
-void lowNumAsians();
-void highNumMinority();
-void lowNumMinority();
+void highMeanSalary(vector<GradEmploymentData> &vector);
+void lowMeanSalary(vector<GradEmploymentData> &vector);
+void highMedianSalary(vector<GradEmploymentData> &vector);
+void lowMedianSalary(vector<GradEmploymentData> &vector);
+void highNumAsians(vector<GradEmploymentData> &vector);
+void lowNumAsians(vector<GradEmploymentData> &vector);
+void highNumMinority(vector<GradEmploymentData> &vector);
+void lowNumMinority(vector<GradEmploymentData> &vector);
+void highestFemale(vector<GradEmploymentData> &vector);
+void highestMale(vector<GradEmploymentData> &vector);
+void specMajor(vector<GradEmploymentData> &vector);
+
 
 #endif
