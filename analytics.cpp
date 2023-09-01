@@ -1,5 +1,21 @@
+/**
+ * @file analytics.cpp
+ * @author Justin Bradshaw
+ * @brief The file containing all of the functions for main.cpp for PA1
+ * @version 0.1
+ * @date 2023-09-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #include "analytics.h"
 
+/**
+ * @brief Loads vector full of data from .csv file
+ * 
+ * @param file the .csv file
+ * @param vector Vector of the structure
+ */
 void loadVector(ifstream &file, vector<GradEmploymentData> &vector){
     GradEmploymentData temp;
     string firstLine;
@@ -44,6 +60,11 @@ void loadVector(ifstream &file, vector<GradEmploymentData> &vector){
 
 }
 
+/**
+ * @brief displays the menu and redirects it to another function depending upon the input
+ * 
+ * @param gradVect Vector of the structure
+ */
 void menu(vector<GradEmploymentData> &gradVect){
     cout<<"2015 National Survey of Recent College Graduate\n"
         "1. Top 10 Majors with the Highest Mean Salary\n"
@@ -65,6 +86,7 @@ void menu(vector<GradEmploymentData> &gradVect){
     if(!validMenuImput(menuNum)){
         cout<<"Invalid menu imput"<<endl;
     } else {
+        //Takes the input from user and redireccts to desired function
         switch (menuNum){
             case 1: highMeanSalary(gradVect);
                 break;
@@ -94,6 +116,13 @@ void menu(vector<GradEmploymentData> &gradVect){
     }
 }
 
+/**
+ * @brief determines if the value input by user is within the range of 1-13
+ * 
+ * @param num the number that the user input
+ * @return true It is within the range of 1-13
+ * @return false It is not within the range of 1-13
+ */
 bool validMenuImput(int num){
     bool valid = false;
     if(num > 0 && num < 13){
@@ -102,7 +131,11 @@ bool validMenuImput(int num){
     return valid;
 }
 
-
+/**
+ * @brief Outputs the top 10 majors with the highest mean salary
+ * 
+ * @param vector Vector of the structure
+ */
 void highMeanSalary(vector<GradEmploymentData> &vector){
     //sorts vector by mean salary
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
@@ -129,7 +162,11 @@ void highMeanSalary(vector<GradEmploymentData> &vector){
     menu(vector);
 }
 
-
+/**
+ * @brief Outputs the top 10 majors with the lowest mean salary
+ * 
+ * @param vector Vector of the structure
+ */
 void lowMeanSalary(vector<GradEmploymentData> &vector){
     //sorts vector by mean salary
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
@@ -156,7 +193,11 @@ void lowMeanSalary(vector<GradEmploymentData> &vector){
     menu(vector);
 }
 
-
+/**
+ * @brief Outputs the top 10 majors with the highest median salary
+ * 
+ * @param vector Vector of the structure
+ */
 void highMedianSalary(vector<GradEmploymentData> &vector){
     //Sorts vector according to median salary
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
@@ -183,7 +224,11 @@ void highMedianSalary(vector<GradEmploymentData> &vector){
     menu(vector);
 }
 
-
+/**
+ * @brief Outputs the top 10 majors with the lowest median salary
+ * 
+ * @param vector Vector of the structure
+ */
 void lowMedianSalary(vector<GradEmploymentData> &vector){
     //sorts vector by meadian salary
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
@@ -210,7 +255,11 @@ void lowMedianSalary(vector<GradEmploymentData> &vector){
     menu(vector);
 }
 
-
+/**
+ * @brief Outputs the top 5 majors with the highest number of Asians
+ * 
+ * @param vector Vector of the structure
+ */
 void highNumAsians(vector<GradEmploymentData> &vector){
     //Sorts vector according to number of asians
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
@@ -237,7 +286,11 @@ void highNumAsians(vector<GradEmploymentData> &vector){
     menu(vector);
 }
 
-
+/**
+ * @brief Outputs the top 5 majors with the lowest number of Asians
+ * 
+ * @param vector Vector of the structure
+ */
 void lowNumAsians(vector<GradEmploymentData> &vector){
     //Sorts vector according to number of asians
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
@@ -264,7 +317,11 @@ void lowNumAsians(vector<GradEmploymentData> &vector){
     menu(vector);
 }
 
-
+/**
+ * @brief Outputs the top 5 majors with the highest number of minorities
+ * 
+ * @param vector Vector of the structure
+ */
 void highNumMinority(vector<GradEmploymentData> &vector){
     //Sorts vector according to number of Minorities
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
@@ -291,7 +348,11 @@ void highNumMinority(vector<GradEmploymentData> &vector){
     menu(vector);
 }
 
-
+/**
+ * @brief Outputs the top 5 majors with the lowest number of minorities
+ * 
+ * @param vector Vector of the structure
+ */
 void lowNumMinority(vector<GradEmploymentData> &vector){
 //Sorts vector according to number of Minorities
     for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
@@ -318,9 +379,13 @@ void lowNumMinority(vector<GradEmploymentData> &vector){
     menu(vector);
 }
 
-
+/**
+ * @brief Outputs the major with the highest number of females
+ * 
+ * @param vector Vector of the structure
+ */
 void highestFemale(vector<GradEmploymentData> &vector){
-    //Fines major with highest number of females
+    //Finds major with highest number of females
     int max = 0;
     for(int i = 0; i < (int)vector.size(); i++){
         if(vector[i+1].demographicsFemales > vector[i].demographicsFemales){
@@ -338,9 +403,13 @@ void highestFemale(vector<GradEmploymentData> &vector){
     menu(vector);
 }
 
-
+/**
+ * @brief Outputs the major with the highest number of males
+ * 
+ * @param vector Vector of the structure
+ */
 void highestMale(vector<GradEmploymentData> &vector){
-    //Fines major with highest number of males
+    //Finds major with highest number of males
     int max = 0;
     for(int i = 0; i < (int)vector.size(); i++){
         if(vector[i+1].demographicsFemales > vector[i].demographicsMales){
@@ -358,42 +427,83 @@ void highestMale(vector<GradEmploymentData> &vector){
     menu(vector);
 }
 
-
+/**
+ * @brief Outputs all of the data for a particular major that is entered by the user
+ * 
+ * @param vector Vector of the structure
+ */
 void specMajor(vector<GradEmploymentData> &vector){
+    //Insertion sort by major
+    for (int startScan = 1; startScan < (int)vector.size(); ++startScan)
+    {
+        string key = vector[startScan].educationMajor;
+        int index = startScan - 1;
+        while (index >= 0 && vector[index].educationMajor > key)
+        {
+        vector[index+1].educationMajor = vector[index].educationMajor;
+        --index;
+        }
+        vector[index+1].educationMajor = key;
+    }
+
     string major = " ";
     int num = -1; //number used to track where in vector desired data is.
     cout<<"Please enter a specific major: ";
     cin.ignore();
     getline(cin, major);
 
-    //Linear search for desired major
-    for(int i = 0; i < (int)vector.size(); i ++){
-        if(vector[i].educationMajor == major){
-            num = i;
-            break;
+    //Binary search for desired major
+    int first = 0, // First array element
+    last = (int)vector.size() - 1, // Last array element
+    middle; // Midpoint of search
+    bool found = false; // Flag
+    while (!found && first <= last){
+        middle = (first + last) / 2; // Calculate midpoint
+        if (vector[middle].educationMajor == major) // If major is found at mid
+        {
+            found = true;
+            num = middle;
+        }
+            else if (vector[middle].educationMajor > major) // If major is in lower half
+        {
+            last = middle - 1;
+        }
+        else
+        {
+            first = middle + 1; // If major is in upper half
         }
     }
-    if(num == -1){
-        cout<<"\nThat major is not in the data.\n"<<endl;
-    }
-
+    //While loop for if they do not enter a Major in the data
     while(num == -1){
+        if(num == -1){
+        cout<<"\nThat major is not in the data.\n"<<endl;
+        }
         major = " ";
         cout<<"Please enter a specific major: ";
 
         getline(cin, major);
 
-        //Linear search for desired major
-        for(int i = 0; i < (int)vector.size(); i ++){
-            if(vector[i].educationMajor == major){
-                num = i;
-                break;
+        //Binary search for desired major
+        int first = 0, // First array element
+        last = (int)vector.size() - 1, // Last array element
+        middle; // Midpoint of search
+        bool found = false; // Flag
+        while (!found && first <= last)
+        {
+            middle = (first + last) / 2; // Calculate midpoint
+            if (vector[middle].educationMajor == major) // If major is found at mid
+            {
+                found = true;
+                num = middle;
             }
-        }
-        if(num == -1){
-            cout<<"\nThat major is not in the data.\n"<<endl;
-        } else {
-            break;
+                else if (vector[middle].educationMajor > major) // If major is in lower half
+            {
+                last = middle - 1;
+            }
+            else
+            {
+                first = middle + 1; // If major is in upper half
+            }
         }
     }
     //Output

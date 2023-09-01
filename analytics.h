@@ -1,3 +1,13 @@
+/**
+ * @file analytics.h
+ * @author Justin Bradshaw
+ * @brief .h file for main.cpp for PA1
+ * @version 0.1
+ * @date 2023-09-01
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
 #ifndef ANALYTICS_H
 #define ANALYTICS_H
 #include <iostream>
