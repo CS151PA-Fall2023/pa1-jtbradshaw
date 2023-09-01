@@ -67,53 +67,53 @@ void loadVector(ifstream &file, vector<GradEmploymentData> &vector){
  * @param gradVect Vector of the structure
  */
 void menu(vector<GradEmploymentData> &gradVect){
-    cout<<"2015 National Survey of Recent College Graduate\n"
-        "1. Top 10 Majors with the Highest Mean Salary\n"
-        "2. Top 10 Majors with the Lowest Mean Salary\n"
-        "3. Top 10 Majors with the Highest Median Salary\n"
-        "4. Top 10 Majors with the Lowest Median Salary\n"
-        "5. What are the Top 5 Majors with the Highest Number of Asians\n"
-        "6. What are the Top 5 Majors with the Lowest Number of Asians\n"
-        "7. What are the Top 5 Majors with the Highest Number of Minorities\n"
-        "8. What are the Top 5 Majors with the Lowest Number of Minorities\n"
-        "9. What is the Major with the Highest Number of Females\n"
-        "10. What is the Major with the Highest Number of Males\n"
-        "11. Display Information for a Specific Major\n"
-        "12. Exit\n"
-        "\nSelect a Menu: ";
-
     int menuNum = -1;
-    cin>>menuNum;
-    if(!validMenuImput(menuNum)){
-        cout<<"Invalid menu imput"<<endl;
-    } else {
-        //Takes the input from user and redireccts to desired function
-        switch (menuNum){
-            case 1: highMeanSalary(gradVect);
-                break;
-            case 2: lowMeanSalary(gradVect);
-                break;
-            case 3: highMedianSalary(gradVect);
-                break;
-            case 4: lowMedianSalary(gradVect);
-                break;
-            case 5: highNumAsians(gradVect);
-                break;
-            case 6: lowNumAsians(gradVect);
-                break;
-            case 7: highNumMinority(gradVect);
-                break;
-            case 8: lowNumMinority(gradVect);
-                break;
-            case 9: highestFemale(gradVect);
-                break;
-            case 10: highestMale(gradVect);
-                break;
-            case 11: specMajor(gradVect);
-                break;
-            case 12: exit(1);
-                break;
+    do{
+        cout<<"2015 National Survey of Recent College Graduate\n"
+            "1. Top 10 Majors with the Highest Mean Salary\n"
+            "2. Top 10 Majors with the Lowest Mean Salary\n"
+            "3. Top 10 Majors with the Highest Median Salary\n"
+            "4. Top 10 Majors with the Lowest Median Salary\n"
+            "5. What are the Top 5 Majors with the Highest Number of Asians\n"
+            "6. What are the Top 5 Majors with the Lowest Number of Asians\n"
+            "7. What are the Top 5 Majors with the Highest Number of Minorities\n"
+            "8. What are the Top 5 Majors with the Lowest Number of Minorities\n"
+            "9. What is the Major with the Highest Number of Females\n"
+            "10. What is the Major with the Highest Number of Males\n"
+            "11. Display Information for a Specific Major\n"
+            "12. Exit\n"
+            "\nSelect a Menu: ";
+        cin>>menuNum;
+        if(!validMenuImput(menuNum)){
+            cout<<"Invalid menu imput\n"<<endl;
         }
+    }while(!validMenuImput(menuNum));
+        //Takes the input from user and redireccts to desired function
+    switch (menuNum){
+        case 1: highMeanSalary(gradVect);
+            break;
+        case 2: lowMeanSalary(gradVect);
+            break;
+        case 3: highMedianSalary(gradVect);
+            break;
+        case 4: lowMedianSalary(gradVect);
+            break;
+        case 5: highNumAsians(gradVect);
+            break;
+        case 6: lowNumAsians(gradVect);
+            break;
+        case 7: highNumMinority(gradVect);
+            break;
+        case 8: lowNumMinority(gradVect);
+            break;
+        case 9: highestFemale(gradVect);
+            break;
+        case 10: highestMale(gradVect);
+            break;
+        case 11: specMajor(gradVect);
+            break;
+        case 12: exit(1);
+            break;
     }
 }
 
